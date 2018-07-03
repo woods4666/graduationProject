@@ -2,7 +2,7 @@ const express = require('express');
 const shopcart = express.Router();
 const util = require('../utils');
 
-shopcart.use((req,res,next) => {
+shopcart.use(async (req,res,next) => {
     req.shopcartData = JSON.parse(await util.readFile('./data/shopcart.json'));
     next()
 })
