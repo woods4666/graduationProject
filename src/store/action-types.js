@@ -1,3 +1,1 @@
-/**
- * Created by Administrator on 2018/7/3 0003.
- */
+export const INIT='INIT';
