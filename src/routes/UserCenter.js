@@ -1,3 +1,14 @@
-/**
- * Created by Administrator on 2018/7/3 0003.
- */
+import React from 'react'
+import {connect} from 'react-redux'
+class UserCenter extends React.Component {
+    constructor(props,context){
+        super(props,context);
+    }
+    render(){
+        return <div>
+            
+        </div>
+    }
+}
+
+export default connect()(UserCenter)
