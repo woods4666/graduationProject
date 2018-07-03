@@ -3,16 +3,12 @@ const user = express.Router();
 const util = require('../utils')
 
 user.use( async (req,res,next) => {
-    req.userData = await util.readFile('./data/user.json');
+    req.userData = JSON.parse(await util.readFile('./data/user.json'));
     next()
 })
 
 
 user.post('/register',(req,res) => {
-    console.log(1);
-    
-    console.log(req.body);
-    
     let {phone,password} = req.body;
     let {userData} = req;
     let flag = userData.find(item => item.phone == phone);
@@ -53,6 +49,22 @@ user.post('/login',(req,res) => {
         })
     }
 })
+
+user.get('/check',(req,res) => {
+    let {userID} = req.session;
+    if(!userID){
+        res.send({
+            code:1,
+            msg:'no'
+        })
+    }else{
+        res.send({
+            code:0,
+            msg:'ok'
+        })
+    }
+})
+
 
 user.get('/checkout',(req,res) => {
     let {userID} = req.session;

@@ -1,0 +1,36 @@
+[{
+    "ImageUrl": "/upload/IndexBanner/14ebf42a82a74d029f4c31c8fc6ec003.jpg",
+    "Type": null,
+    "TargetId": 0,
+    "categoryId":3528,
+    "ItemInfoId": 28849,
+    "Appeal": null,
+    "CountdownTag": null,
+    "CountdownTime": 0
+}, {
+    "ImageUrl": "/upload/IndexBanner/1600a5a7b6894e61b11eb4f543235934.jpg",
+    "Type": null,
+    "TargetId": 0,
+    "ItemInfoId": 28883,
+    "categoryId":2906,
+    "Appeal": null,
+    "CountdownTag": null,
+    "CountdownTime": 0
+}, {
+    "ImageUrl": "/upload/IndexBanner/42bb8aeb3d194243b5557f21295c09a8.jpg",
+    "Type": null,
+    "TargetId": 0,
+    "ItemInfoId": 25941,
+    "categoryId":2906,
+    "Appeal": null,
+    "CountdownTag": null,
+    "CountdownTime": 0
+}, {
+    "ImageUrl": "/upload/IndexBanner/24389b4acb1b4d02a225ae1f521170eb.jpg",
+    "Type": null,
+    "ItemInfoId": 28638,
+    "categoryId":3549,
+    "Appeal": null,
+    "CountdownTag": null,
+    "CountdownTime": 0
+}]
