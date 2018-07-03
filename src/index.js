@@ -8,11 +8,27 @@ import store from './store'
 import './static/css/reset.min.css'
 import './static/css/common.less'
 import Nav from './component/Nav';
-
+import Head from './component/Head'
+import Home from "./routes/Home";
+import All from "./routes/All";
+import Stroll from "./routes/Stroll";
+import Cart from "./routes/Cart";
+import UserCenter from "./routes/UserCenter";
 ReactDOM.render(<Provider store={store}>
     <HashRouter>
         <LocaleProvider locale={zh_CN}>
            <div>
+               <Head/>
+               <main className={'container'}>
+                   <Switch>
+                       <Route path={'/home'} component={Home}/>
+                       <Route path={'/all'} component={All}/>
+                       <Route path={'/stroll'} component={Stroll}/>
+                       <Route path={'/cart'} component={Cart}/>
+                       <Route path={'/usercenter'} component={UserCenter}/>
+                       <Redirect to={'/home'}/>
+                   </Switch>
+               </main>
                <Nav/>
            </div>
         </LocaleProvider>
