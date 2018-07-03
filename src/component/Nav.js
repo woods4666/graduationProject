@@ -8,7 +8,7 @@ class Nav extends React.Component{
         super(props,context);
     }
     render(){
-        return <Nav>
+        return <nav>
             <ul>
                 <li><NavLink to={'/'}><Icon type={'home'}/>首页</NavLink></li>
                 <li><NavLink to={'/all'}><Icon type={'profile'}/>全部产品</NavLink></li>
@@ -16,7 +16,7 @@ class Nav extends React.Component{
                 <li><NavLink to={'/cart'}><Icon type={'shopping-cart'}/>购物车</NavLink></li>
                 <li><NavLink to={'/usercenter'}><Icon type={'user'}/>账户中心</NavLink></li>
             </ul>
-        </Nav>
+        </nav>
     }
 }
 

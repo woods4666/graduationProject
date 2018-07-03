@@ -7,7 +7,7 @@ import {Provider} from 'react-redux'
 import store from './store'
 import './static/css/reset.min.css'
 import './static/css/common.less'
-import Nav from "./component/Nav";
+import Nav from './component/Nav';
 
 ReactDOM.render(<Provider store={store}>
     <HashRouter>
