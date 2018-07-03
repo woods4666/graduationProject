@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const goods = require('./routes/goods')
 const user = require('./routes/user');
-
+const shopcart = require('./routes/shopcart')
 
 const app = express();
 
@@ -29,7 +29,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.use('/user',user);
+app.use('/goods',goods);
+app.use('/shopcart',shopcart)
 
 
-
-app.listen(3000)
+app.listen(8080)
