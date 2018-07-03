@@ -1,0 +1,141 @@
+.userCenterBox {
+  @green: green;
+@white:#fff;
+  @text-color:#585858;
+  background: #eee;
+  .imgBox {
+    width: 100%;
+    height: 2.08rem;
+    text-align: center;
+    background: url('http://i1.lifevccdn.com/images/h5/core/background.png') 100% no-repeat;
+    .unLogin {
+      p {
+        padding-top: .25rem;
+      }
+      .log {
+        display: inline-block;
+        border: 1px solid @green;
+        height: .6rem;
+        line-height: .6rem;
+        border-radius: .3rem;
+        a {
+          padding: 0 .25rem;
+          font-size: .28rem;
+          color: @green;
+          &.loginLink {
+            border-right: 1px solid @green;
+          }
+        }
+      }
+    }
+    .logined {
+      padding-top: .4rem;
+      display: inline-block;
+      width: 3.6rem;
+      i{
+        float: left;
+        background: darkgreen;
+        color: #fff;
+        width: 1rem;
+        height: 1rem;
+        line-height: 1rem;
+        text-align: center;
+        font-size: .5rem;
+        border-radius: 50%;
+        margin-right: .3rem;
+      }
+      .info{
+        text-align: left;
+        p{
+          margin-bottom: 0;
+          font-size: .34rem;
+
+        }
+      }
+    }
+  }
+  /*.order{
+    .order-item{
+      border-bottom: 1px solid #000;
+      line-height: 1rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      a{
+        color: #555;
+        font-size: .4rem;
+        //border-right: 1px solid #000;
+        i{
+          margin-right: .2rem;
+          //font-size: .5rem;
+          vertical-align: middle;
+        }
+      }
+    }
+  }*/
+  .order{
+    .order-item{
+      background: @white;
+      .ant-divider-vertical{
+        height: .5rem;
+      }
+      a{
+        color: @text-color;
+        display: inline-block;
+        width: 30%;
+        height: 1rem;
+        line-height: 1rem;
+        text-align: center;
+        font-size: .3rem;
+        i{
+          font-size: .5rem;
+          vertical-align: middle;
+          margin-right: .2rem;
+        }
+        span{
+          vertical-align: middle;
+        }
+      }
+    }
+    .middle{
+      background: @white;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+
+    }
+    &>a{
+      color: #000;
+      display: block;
+      width: 100%;
+      background: @white;
+      height: 1.2rem;
+      line-height: 1.2rem;
+      i{
+        &:first-of-type{
+          font-size: .6rem;
+          vertical-align: middle;
+          margin:0 .3rem;
+        }
+        &:nth-of-type(2){
+          float: right;
+          font-size: .45rem;
+          padding:.4rem .2rem 0 0;
+        }
+      }
+      span{
+        vertical-align: middle;
+        font-size: .34rem;
+      }
+      &:nth-of-type(1){
+        margin-bottom: .2rem;
+      }
+      &:nth-of-type(4){
+        margin-bottom: .2rem;
+      }
+      &:nth-of-type(9){
+        margin-bottom: 4rem;
+      }
+    }
+  }
+}
