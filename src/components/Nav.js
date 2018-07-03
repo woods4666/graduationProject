@@ -11,10 +11,10 @@ class Nav extends React.Component{
         return <Nav>
             <ul>
                 <li><NavLink to={'/'}><Icon type={'home'}/>首页</NavLink></li>
-                <li><NavLink to={'/'}><Icon type={''}/>全部产品</NavLink></li>
-                <li><NavLink to={'/'}><Icon type={''}/>闲逛</NavLink></li>
-                <li><NavLink to={'/'}><Icon type={''}/>购物车</NavLink></li>
-                <li><NavLink to={'/'}><Icon type={''}/>账号中心</NavLink></li>
+                <li><NavLink to={'/'}><Icon type={'profile'}/>全部产品</NavLink></li>
+                <li><NavLink to={'/'}><Icon type={'compass'}/>闲逛</NavLink></li>
+                <li><NavLink to={'/'}><Icon type={'shopping-cart'}/>购物车</NavLink></li>
+                <li><NavLink to={'/'}><Icon type={'user'}/>账户中心</NavLink></li>
             </ul>
         </Nav>
     }
