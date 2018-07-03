@@ -1,7 +1,14 @@
 import React from 'react'
-import ReactDOM,{render} from 'react-dom'
+import ReactDOM from 'react-dom'
+import {LocaleProvider} from 'antd'
+import {Route,Switch,Redirect} from 'react-router-dom'
+import {Provider} from 'react-redux'
 
 
-ReactDOM.render(<main>
+ReactDOM.render(<LocaleProvider>
+    <Provider>
+        <Switch>
 
-</main>,document.getElementById('root'));
+        </Switch>
+    </Provider>
+</LocaleProvider>,document.getElementById('root'));
