@@ -1,14 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {LocaleProvider} from 'antd'
-import {Route,Switch,Redirect} from 'react-router-dom'
+import {HashRouter,Route,Switch,Redirect} from 'react-router-dom'
+import zh_CN from 'antd/lib/locale-provider/zh_CN';
 import {Provider} from 'react-redux'
 
 
-ReactDOM.render(<LocaleProvider>
-    <Provider>
-        <Switch>
+ReactDOM.render(<Provider>
+    <HashRouter>
+        <LocaleProvider locale={zh_CN}>
+            <Switch>
+                <Route/>
 
-        </Switch>
-    </Provider>
-</LocaleProvider>,document.getElementById('root'));
+                <Redirect/>
+            </Switch>
+        </LocaleProvider>
+
+    </HashRouter>
+</Provider>,document.getElementById('root'));
