@@ -12,7 +12,7 @@ goods.get('/allCategory',async (req,res) => {
     })
 })
 
-goods.get('/banner',(req,res) => {
+goods.get('/banner',async (req,res) => {
     let list = JSON.parse(await util.readFile('./data/banner.json'));
     res.send({
         code:0,
@@ -21,7 +21,7 @@ goods.get('/banner',(req,res) => {
     })
 })
 
-goods.get('/info/:category/:id',(req,res) => {
+goods.get('/info/:category/:id',async (req,res) => {
     let {category,id} = req.params;
     let data = JSON.parse(await util.readFile(`./data/${category}.json`));
     let goodsData = data.find(item => {
@@ -49,7 +49,7 @@ goods.get('/info/:category/:id',(req,res) => {
  * 3  价格从高到低
  * 4  价格从低到高
  */
-goods.get('/category/:id/:sort',(req,res) => {
+goods.get('/category/:id/:sort',async (req,res) => {
     let {id,sort} = req.params;
     let data = JSON.parse(await util.readFile(`./data/${id}.json`))
     switch (parseFloat(id)) {
@@ -95,24 +95,32 @@ goods.get('/category/:id/:sort',(req,res) => {
     })
 })
 
-app.get('/random',(req,res) => {
-    let flag = 0;
+goods.get('/random',async (req,res) => {
     let list = [];
     randomAry.forEach(item => {
-        let curData = JSON.parse(await util.readFile(`./data/${item}.json`));
-        let index = Math.floor(Math.random() * curData.length) ;
-        if(list.length < 20){
-            list.push(curData[index]);
-        }
+        // let curData = JSON.parse(await util.readFile(`./data/${item}.json`));
+        // let index = Math.floor(Math.random() * curData.length) ;
+        // if(list.length < 20){
+        //     list.push(curData[index]);
+        // }
+        util.readFile(`./data/${item}.json`).then(res => {
+            let curData = JSON.parse(res);
+            let index = Math.floor(Math.random() * curData.length);
+            if(list.length < 20){
+                list.push(curData[index]);
+            }else{
+                res.send({
+                    code:0,
+                    msg:'ok',
+                    list
+                })
+            }
+        })
     });
-    res.send({
-        code:0,
-        msg:'ok',
-        list
-    })
+    
 })
 
-app.post('/search',(req,res) => {
+goods.post('/search',async (req,res) => {
     let {ref} = req.body;
     let list = [];
     for (let i = 0; i < randomAry.length; i++) {
