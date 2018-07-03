@@ -7,8 +7,8 @@ import {Provider} from 'react-redux'
 import store from './store'
 import './static/css/reset.min.css'
 import './static/css/common.less'
-import Nav from './component/Nav';
-import Head from './component/Head'
+import Nav from './component/NavBottom';
+import Head from './component/NavTop'
 import Home from "./routes/Home";
 import All from "./routes/All";
 import Stroll from "./routes/Stroll";
