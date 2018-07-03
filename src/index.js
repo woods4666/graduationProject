@@ -10,6 +10,8 @@ import Home from "./routes/Home";
 import Stroll from "./routes/Stroll";
 import UserCenter from "./routes/UserCenter";
 import store from './store'
+import './static/css/common.less'
+
 ReactDOM.render(<Provider store={store}>
     <HashRouter>
         <LocaleProvider locale={zh_CN}>

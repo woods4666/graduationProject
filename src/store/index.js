@@ -1,4 +1,7 @@
-import {createStore} from 'redux'
-import reducer from './reducers'
-let store=createStore(reducer);
+import {createStore, applyMiddleware} from 'redux';
+import reduxLogger from 'redux-logger';
+import reduxThunk from 'redux-thunk';
+import reduxPromise from 'redux-promise';
+import reducer from './reducer/';
+let store=createStore(reducer,applyMiddleware(reduxLogger,reduxThunk,reduxPromise));
 export default store;

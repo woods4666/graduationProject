@@ -6,10 +6,12 @@ class UserCenter extends React.Component {
         super(props,context);
     }
     render(){
+
         return <section>
            <div className="order">
                <a href="#">
-
+                  <Icon type="folder"/>
+                   待支付
                </a>
            </div>
         </section>
