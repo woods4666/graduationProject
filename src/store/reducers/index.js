@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
 import home from './home'
-import usercenter from 'uesrcenter'
+import usercenter from './uesrcenter'
 let reducer=combineReducers({
     home,
     usercenter
