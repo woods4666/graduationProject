@@ -1,8 +1,8 @@
 import home from './home';
-import usercenter from './uesrcenter'
+import person from './parson'
 
 let action={
     home,
-    usercenter
+    person
 };
 export default action;
