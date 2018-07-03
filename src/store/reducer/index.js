@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux'
-import home from './home'
-import usercenter from './uesrcenter'
+import home from './home';
+import person from './person'
 let reducer=combineReducers({
     home,
-    usercenter
+    person
 });
 export default reducer;
