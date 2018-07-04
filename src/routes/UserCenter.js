@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import {Icon,Divider} from 'antd'
 import '../static/css/userCenter.less'
 class UserCenter extends React.Component{
@@ -26,15 +27,15 @@ class UserCenter extends React.Component{
         </div>
         <div className="order">
             <div className="top order-item">
-                <a href="#">
+                <Link to="/usercenter/userorder">
                     <Icon type="pay-circle" />
                     <span>待支付</span>
-                </a>
+                </Link>
                 <Divider type="vertical" />
-                <a href="#">
+                <Link to="/usercenter/userorder/packing">
                     <Icon type="gift" />
                     <span>待发货</span>
-                </a>
+                </Link>
                 <Divider type="vertical" />
                 <a href="#">
                     <Icon type="car" />

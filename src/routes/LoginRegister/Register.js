@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {withRouter,NavLink} from 'react-router-dom'
 import md5 from 'blueimp-md5'
-import action from '../../store/action'
 import {register} from '../../api/person'
 import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
 
@@ -27,8 +27,10 @@ class Register extends React.Component {
                 let {phone,password}=values;
                 password=md5(password);
                 let result=await register({phone,password});
-                console.log(1);
                 console.log(result);
+                if (parseFloat(result.code)===0){
+                    this.props.history.go(-1);
+                }
             }
         });
     }
@@ -145,12 +147,12 @@ class Register extends React.Component {
                     </Button>
                 </a>
 
-                <a href=""><Button className='gray'>
+                <NavLink to="/login"><Button className='gray' >
                     登录
-                </Button></a>
+                </Button></NavLink>
             </Form>
         </div>
     }
 }
 
-export default Form.create(state=>state.register,action.register)(connect()(Register))
+export default withRouter(Form.create()(connect()(Register)))

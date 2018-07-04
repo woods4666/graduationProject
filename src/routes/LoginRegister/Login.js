@@ -1,5 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {NavLink,withRouter} from 'react-router-dom'
+import md5 from 'blueimp-md5'
+import {login} from '../../api/person'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 
 const FormItem = Form.Item;
@@ -7,12 +10,25 @@ const FormItem = Form.Item;
 class Login extends React.Component {
     constructor(props,context){
         super(props,context);
+
+    }
+
+    handleClose = () => {
+        this.setState({ visible: false });
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
+        this.props.form.validateFields(async (err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                let {password,phone}=values;
+                password=md5(password);
+                let result=await login({phone,password});
+                console.log(result);
+                if (result.code==0){
+                    this.props.history.go(-1);
+                }
+
             }
         });
     };
@@ -53,18 +69,18 @@ class Login extends React.Component {
                         <Icon type="right"/>
                     </a>
                     <a href="#">
-                        <Button type="primary" htmlType="submit" className="login-form-button green"  >
+                        <Button type="primary" htmlType="submit" className="login-form-button green"  onClick={this.handleSubmit}>
                             登录
                         </Button>
                     </a>
 
-                    <a href=""><Button className='gray'>
+                    <NavLink to="/register"><Button className='gray'>
                         注册
-                    </Button></a>
+                    </Button></NavLink>
                 </FormItem>
             </Form>
         </div>
     }
 }
 
-export default Form.create()(connect()(Login));
+export default withRouter(Form.create()(connect()(Login)));
