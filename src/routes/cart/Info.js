@@ -1,13 +1,21 @@
-import React from 'react'
+import React from 'react';
 import {connect} from 'react-redux'
+<<<<<<< HEAD:src/routes/LoginRegister/Login.js
 import {NavLink,withRouter} from 'react-router-dom'
 import md5 from 'blueimp-md5'
 import {login} from '../../api/person'
+=======
+<<<<<<< HEAD:src/routes/cart/Info.js
+
+class Info extends React.Component{
+=======
+>>>>>>> 36078da2952de858057f68ef194ed80dfc5221de:src/routes/cart/Info.js
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 
 const FormItem = Form.Item;
 
 class Login extends React.Component {
+>>>>>>> 617900390c25e8abd7eef6ef91f8aa54b48054da:src/routes/LoginRegister/Login.js
     constructor(props,context){
         super(props,context);
 
@@ -33,6 +41,15 @@ class Login extends React.Component {
         });
     };
     render(){
+<<<<<<< HEAD:src/routes/cart/Info.js
+        return <section>
+            
+        </section>
+    }
+}
+
+export default connect()(Info)
+=======
         const { getFieldDecorator } = this.props.form;
         return <div className="loginBox">
             <div className="title">老用户登录</div>
@@ -83,4 +100,9 @@ class Login extends React.Component {
     }
 }
 
+<<<<<<< HEAD:src/routes/LoginRegister/Login.js
 export default withRouter(Form.create()(connect()(Login)));
+=======
+export default Form.create()(connect()(Login));
+>>>>>>> 617900390c25e8abd7eef6ef91f8aa54b48054da:src/routes/LoginRegister/Login.js
+>>>>>>> 36078da2952de858057f68ef194ed80dfc5221de:src/routes/cart/Info.js

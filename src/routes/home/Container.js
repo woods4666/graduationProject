@@ -24,8 +24,10 @@ class Container extends React.Component{
             </div>
             {/*热卖新品*/}
             <div className={'newProducts'}>
-                <h3>热卖新品</h3>
-                <p>天天有新品，每天来逛逛</p>
+               <div className={'title'}>
+                   <h3>热卖新品</h3>
+                  <p>每天有新品，天天来逛逛</p>
+               </div>
                 <div className={'commodity'}>
                     <ul>
                         <li>

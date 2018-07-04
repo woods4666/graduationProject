@@ -8,9 +8,16 @@
       padding-top: .7rem;
       li {
         float: left;
-        margin-right: .15rem;
+        margin-right: .20rem;
+        &:nth-last-child(1){
+          margin-right: 0;
+        }
         a {
-
+          font-size: .25rem;
+          color: #4a4a4a;
+          &.active{
+            color: #3aad36;
+          }
         }
       }
     }
@@ -18,14 +25,110 @@
   .bannerBox {
     margin-top: .77rem;
     width: 100%;
-    height: 3rem;
+    height: 5rem;
     background: #4a4a4a;
+    a{
+      display: block;
+      width: 100%;
+      height: 5rem;
+    }
     .ant-carousel .slick-slide {
       text-align: center;
-      height: 100%;
-      line-height: 3rem;
-      background: #364d79;
-      overflow: hidden;
+      width: 100%;
+      height: 5rem;
+      img{
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .containerBox{
+    width: 100%;
+    height: 3rem;
+    .hotSell{
+      padding: .2rem;
+      h3{
+        line-height: .3rem;
+        font-size: .45rem;
+        text-align: center;
+      }
+      ul{
+        display: flex;
+        li{
+          float: left;
+          width: 25%;
+          text-align: center;
+          img{
+            display: block;
+            width: 100%;
+          }
+          p{
+            line-height: .3rem;
+            font-size: .2rem;
+            text-align: center;
+          }
+        }
+      }
+    }
+    .member{
+      padding: .2rem;
+      width: 100%;
+      height: 3rem;
+      img{
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .newProducts{
+      width: 100%;
+      .title{
+        padding: .3rem;
+        width: 100%;
+        h3{
+          font-size: .45rem;
+          text-align: center;
+          line-height: .3rem;
+        }
+        p{
+          line-height: .3rem;
+          font-size: .25rem;
+          text-align: center;
+        }
+      }
+      .commodity{
+        width: 100%;
+        ul{
+          width: 100%;
+          display: flex;
+          li{
+            float: left;
+            width: 33%;
+            text-align: center;
+            img{
+              display: block;
+              width: 100%;
+            }
+            p{
+              font-size: .3rem;
+              line-height: .2rem;
+              text-align: center;
+            }
+            span{
+              display: block;
+              font-size: .3rem;
+              color: red;
+              text-align: center;
+              line-height: .2rem;
+            }
+          }
+        }
+      }
+    }
+    .recommend{
+      width: 100%;
     }
   }
 }
