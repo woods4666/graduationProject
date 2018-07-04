@@ -1,0 +1,95 @@
+.loginRegisterBox {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  background: url('http://i1.lifevccdn.com/images/m/account/login-big-bg.jpg') no-repeat;
+  background-size: 100% 100%;
+  .loginHeader {
+    & > i {
+      font-size: .6rem;
+      color: #3aad36;
+      position: relative;
+      top: .16rem;
+      left: -2rem;
+    }
+    width: 100%;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    text-align: center;
+    background: #fff;
+    img {
+      width: 2.4rem;
+      height: 1.2rem;
+    }
+  }
+  .loginBody {
+    box-sizing: border-box;
+    padding:0 .32rem;
+    //position: relative;
+
+    .ant-form-item{
+      margin-bottom: 0;
+    }
+    input{
+      background: transparent;
+      border:0;
+      border-bottom: 1px solid #ddb;
+      border-radius: 0;
+      font-size: .32rem;
+      padding: 0;
+      height: .8rem;
+      color: #000 !important;
+    }
+    .title{
+      text-align: center;
+      font-size: .4rem;
+      margin:.4rem 0 .2rem;
+      color: #037049;
+    }
+    .password{
+      position: relative;
+    }
+    a{
+      button{
+        display: block;
+        width: 6rem;
+        margin-bottom: .3rem;
+        margin-left: .45rem;
+        font-size: .38rem;
+        height: .8rem;
+        line-height: .8rem;
+        &.green{
+          background:#3aad36;
+        }
+        &.gray{
+          background:#8a8a8a;
+          color:#fff;
+          opacity: .5;
+        }
+
+      }
+      &.forgot{
+        position: absolute;
+        right: .3rem;
+        top: .15rem;
+        font-size: .32rem;
+        color: #3aad36;
+        border: 1px solid #3aad36;
+        border-radius: 4px;
+        text-align: center;
+        height: .5rem;
+        line-height: .5rem;
+        padding:0 .15rem;
+        z-index: 10000;
+      }
+      &.phoneLogin{
+        color: #3aad36;
+        float: right;
+        margin-right: .1rem;
+      }
+    }
+  }
+}

@@ -9,7 +9,7 @@ user.use( async (req,res,next) => {
 
 
 user.post('/register',(req,res) => {
-    let {phone,password} = req.body;
+    let {phone,password,name,email} = req.body;
     let {userData} = req;
     let flag = userData.find(item => item.phone == phone);
     if(flag){
@@ -21,8 +21,8 @@ user.post('/register',(req,res) => {
         })
         return
     }
-    userData.push({phone,password});
-    util.writeFile('../data/user.json',JSON.stringify(userData)).then(result => {
+    userData.push({phone,password,name,email});
+    util.writeFile('./data/user.json',JSON.stringify(userData)).then(result => {
         res.send({
             code:0,
             msg:'ok'
@@ -97,7 +97,7 @@ user.post('/modify',(req,res) => {
     }
     userData[index].password = newp;
     req.session.userID = undefined;
-    writeFile('../data/user.json',JSON.stringify(userData))
+    util.writeFile('./data/user.json',JSON.stringify(userData))
         .then(result => {
             res.send({
                 code:0,
