@@ -24,8 +24,15 @@ goods.get('/banner',async (req,res) => {
 goods.get('/info/:category/:id',async (req,res) => {
     let {category,id} = req.params;
     let data = JSON.parse(await util.readFile(`./data/${category}.json`));
+    if(!data){
+        res.send({
+            code:1,
+            msg:'no'
+        })
+        return 
+    }
     let goodsData = data.find(item => {
-        return item.ItemInfoId === id
+        return item.ItemInfoId == id
     });
     if(!goodsData){
         res.send({
