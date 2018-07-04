@@ -1,7 +1,1 @@
-[
-    {
-        "phone":1234567,
-        "password":"aaaaaa"
-    }
-]
-
+[{"phone":1234567,"password":"aaaaaa"},{"phone":"17599923233","password":"123456","name":"tcl","email":"531252419@qq.com"}]

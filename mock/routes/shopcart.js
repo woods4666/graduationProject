@@ -10,11 +10,13 @@ shopcart.use(async (req,res,next) => {
 shopcart.post('/add',async (req,res) => {
     let {goodsId,categoryId} = req.body;
     let curCategory = JSON.parse(await util.readFile(`./data/${categoryId}.json`));
-    let curGood = curCategory.find(item => item.id == goodsId);
+    let curGood = curCategory.find(item => item.ItemInfoId == goodsId);
+    console.log(curGood);
+    
     if(req.session.userID){
         let {shopcartData} = req;
         let index = shopcartData.findIndex(item => {
-            return item.userId == req.session.userId
+            return item.userID == req.session.userID
         });
         // 如果当前用户没有商品
         let curUserData = shopcartData[index];
@@ -65,6 +67,10 @@ shopcart.post('/add',async (req,res) => {
                 activityPrice:curGood.activityPrice,
                 activityTag:curGood.activityTag
             }];
+            res.send({
+                code:0,
+                msg:'ok'
+            })
         }else{
             let {storeList} = req.session;
             let _index = storeList.findIndex(item => {
@@ -84,6 +90,10 @@ shopcart.post('/add',async (req,res) => {
                     salePrice:curGood.SalePrice,
                     activityPrice:curGood.activityPrice,
                     activityTag:curGood.activityTag
+                });
+                res.send({
+                    code:0,
+                    msg:'ok'
                 })
             }
         }
@@ -96,7 +106,7 @@ shopcart.post('/remove',(req,res) => {
     if(req.session.userID){
         let {shopcartData} = req;
         let key = shopcartData.find(item => {
-            return item.userId == req.session.userId 
+            return item.userID == req.session.userID 
         });
         shopcartData[key].list = shopcartData[key].list.filter(item => {
             return idList.indexOf(item) < 0
@@ -136,7 +146,7 @@ shopcart.post('/pay',(req,res) => {
     };
     let {shopcartData} = req;
     idList.forEach(id => {
-        let curUserData = shopcartData.findIndex(item => item.userId == req.session.userId);
+        let curUserData = shopcartData.findIndex(item => item.userID == req.session.userID);
         let _index = curUserData.list.findIndex(item => item.id == id);
         if(_index < 0){
             res.send({
@@ -163,15 +173,16 @@ shopcart.post('/pay',(req,res) => {
 })
 
 shopcart.get('/query',(req,res) => {
-    if(!req.session.userId){
+    if(!req.session.userID){
+        
         res.send({
             code:0,
             msg:'ok',
-            list:req.session.storeList
+            list:req.session.storeList || []
         })
     }else{
         let {shopcartData} = req;
-        let userIndex = shopcartData.findIndex(item => item.userId == req.session.userId);
+        let userIndex = shopcartData.findIndex(item => item.userID == req.session.userID);
         res.send({
             code:0,
             msg:'ok',

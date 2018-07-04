@@ -4,6 +4,7 @@ const util = require('../utils')
 
 user.use( async (req,res,next) => {
     req.userData = JSON.parse(await util.readFile('./data/user.json'));
+    req.shopcartData = JSON.parse(await util.readFile('./data/shopcart.json'))
     next()
 })
 
@@ -38,6 +39,29 @@ user.post('/login',(req,res) => {
     });
     if(flag){
         req.session.userID = phone;
+        if(!req.session.storeList){
+            res.send({
+                code:0,
+                msg:'ok'
+            })
+        }else{
+            let index = req.shopcartData.findIndex(item => item.userID == req.session.userID);
+            if(index < 0){
+                req.shopcartData.push({
+                    userID:req.session.userID,
+                    list:[]
+                })
+            }else {
+                req.shopcartData[index].list.concat(req.session.storeList)
+            }
+            util.writeFile('./data/shopcart.json',JSON.stringify(req.shopcartData))
+                .then(result => {
+                    res.send({
+                        code:0,
+                        msg:'ok'
+                    })
+                })
+        }
         res.send({
             code:0,
             msg:'ok'
@@ -112,5 +136,21 @@ user.post('/modify',(req,res) => {
         })
 })
 
+user.get('/info',(req,res) => {
+    let {userData} = req;
+    if(req.session.userID){
+        let curUserData = userData.find(item => item.phone == req.session.userID);
+        res.send({
+            code:0,
+            msg:'ok',
+            info:curUserData
+        })
+    }else{
+        res.send({
+            code:1,
+            msg:'no'
+        })
+    }
+})
 
 module.exports = user;
