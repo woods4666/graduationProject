@@ -6,8 +6,8 @@ class All extends React.Component{
         super(props,context);
     }
     render(){
-        return <section>
-            全部商品
+        return <section className="allBox">
+sfdssssss
         </section>
     }
 }

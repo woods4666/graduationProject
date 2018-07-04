@@ -58,11 +58,11 @@ class UserCenter extends React.Component{
                     <span>退换货</span>
                 </a>
             </div>
-            <a href="#" className="clearfix">
+            <Link to="/usercenter/userorder" className="clearfix">
                 <Icon type="file-text" />
                 <span>我的订单</span>
                 <Icon type="right" />
-            </a>
+            </Link>
             <a href="#" className="clearfix">
                 <Icon type="red-envelope" />
                 <span>我的优惠券</span>

@@ -21,7 +21,7 @@ class UserOrder extends React.Component {
 
         return <div className="userOrder">
             <Tabs defaultActiveKey={
-                this.props.location.pathname==='usercenter/userorder'?'1':'2'
+                this.props.location.pathname==='/usercenter/userorder'?'1':'2'
             } onChange={callback}>
                 <TabPane tab="待支付" key="1"><div className="unpay">
                <div className="whenEmty">
