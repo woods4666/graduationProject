@@ -28,4 +28,4 @@ class LoginRegisterBase extends React.Component {
     }
 }
 
-export default connect()(LoginRegisterBase)
+export default connect(state=>state.cart)(LoginRegisterBase)
