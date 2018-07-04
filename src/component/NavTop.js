@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import {Icon} from 'antd'
 class NavTop extends React.Component{
 
@@ -8,8 +9,8 @@ class NavTop extends React.Component{
     }
     render(){
         return <section className={'navTop'}>
-                <h2>丽芙家居</h2>
-                <Icon type={'search'}/>
+                <h2></h2>
+            <Link to={'/all'}><Icon type={'search'}/></Link>
         </section>
     }
 }

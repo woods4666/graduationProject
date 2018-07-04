@@ -8,9 +8,16 @@
       padding-top: .7rem;
       li {
         float: left;
-        margin-right: .15rem;
+        margin-right: .20rem;
+        &:nth-last-child(1){
+          margin-right: 0;
+        }
         a {
-
+          font-size: .25rem;
+          color: #4a4a4a;
+          &.active{
+            color: #3aad36;
+          }
         }
       }
     }
