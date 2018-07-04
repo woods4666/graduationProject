@@ -1,8 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {withRouter,NavLink,Redirect,Route,Switch} from 'react-router-dom'
-import List from "./List";
-
+import {withRouter,NavLink} from 'react-router-dom'
 
 class Tab extends React.Component {
     constructor(props, context) {
@@ -11,8 +9,8 @@ class Tab extends React.Component {
     render() {
         return <div className={'tabBox'}>
             <ul>
-            <li><NavLink to={'/home'}>首页</NavLink></li>
-            <li><NavLink to={'/home/list/1'}>新品</NavLink></li>
+            <li><NavLink exact to={'/home'}>首页</NavLink></li>
+            <li><NavLink to={'/home/new'}>新品</NavLink></li>
             <li><NavLink to={'/home/list/2'}>家务</NavLink></li>
             <li><NavLink to={'/home/list/3'}>下厨</NavLink></li>
             <li><NavLink to={'/home/list/4'}>生活</NavLink></li>

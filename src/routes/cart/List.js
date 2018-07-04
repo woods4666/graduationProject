@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux'
 
-class Cart extends React.Component{
+class List extends React.Component{
     constructor(props,context){
         super(props,context);
     }
     render(){
-        return <section className={'cartBox'}>
-
+        return <section>
+            
         </section>
     }
 }
 
-export default connect()(Cart)
+export default connect()(List)

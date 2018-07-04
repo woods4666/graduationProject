@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import Banner from './Banner'
-class Page extends React.Component{
+class SmallHome extends React.Component{
 
     constructor(props,context){
         super(props,context);
@@ -13,4 +13,5 @@ class Page extends React.Component{
     }
 }
 
-export default connect()(Page)
+export default connect()(SmallHome)
+

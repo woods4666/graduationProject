@@ -1,8 +1,9 @@
 import * as TYPES from '../action-types';
-export default function home(state={},action) {
+export default function home(state={
+
+},action) {
     state=JSON.parse(JSON.stringify(state));
-    switch(action.type){
-        
+    switch(action.type) {
     }
     return state;
 }
