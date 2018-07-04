@@ -14,7 +14,9 @@ import All from "./routes/All";
 import Stroll from "./routes/Stroll";
 import Cart from "./routes/Cart";
 import UserCenter from "./routes/UserCenter";
+
 import UserOrder from './routes/userCenter/UserOrder'
+import LoginRegisterBase from "./routes/LoginRegisterBase";
 
 ReactDOM.render(<Provider store={store}>
     <HashRouter>
@@ -29,6 +31,9 @@ ReactDOM.render(<Provider store={store}>
                        <Route path={'/cart'} component={Cart}/>
                        <Route path={'/usercenter'} exact component={UserCenter}/>
                        <Route path={'/usercenter/userorder'} component={UserOrder}/>
+                       <Route path={'/usercenter'} component={UserCenter}/>
+                       <Route path={'/login'} component={LoginRegisterBase}/>
+                       <Route path={'/register'} component={LoginRegisterBase}/>
                        <Redirect to={'/home'}/>
                    </Switch>
                </main>

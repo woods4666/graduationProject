@@ -33,4 +33,6 @@ app.use('/goods',goods);
 app.use('/shopcart',shopcart)
 
 
-app.listen(8080)
+app.listen(8080,() => {
+    console.log('服务器启动了，这下满意了吗？？？？？？？？')
+})

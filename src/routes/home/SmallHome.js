@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import Banner from './Banner'
+import Container from "./Container";
 class SmallHome extends React.Component{
 
     constructor(props,context){
@@ -9,6 +10,7 @@ class SmallHome extends React.Component{
     render(){
         return <section>
             <Banner/>
+            <Container/>
         </section>
     }
 }

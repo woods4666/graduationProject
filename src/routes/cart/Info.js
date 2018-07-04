@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
+<<<<<<< HEAD
 <<<<<<< HEAD:src/routes/LoginRegister/Login.js
 import {NavLink,withRouter} from 'react-router-dom'
 import md5 from 'blueimp-md5'
@@ -16,6 +17,10 @@ const FormItem = Form.Item;
 
 class Login extends React.Component {
 >>>>>>> 617900390c25e8abd7eef6ef91f8aa54b48054da:src/routes/LoginRegister/Login.js
+=======
+
+class Info extends React.Component{
+>>>>>>> 3467e5582157a51f63eca8ab6e44a4a7dd2dd669
     constructor(props,context){
         super(props,context);
 
@@ -24,6 +29,7 @@ class Login extends React.Component {
     handleClose = () => {
         this.setState({ visible: false });
     }
+<<<<<<< HEAD
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields(async (err, values) => {
@@ -40,14 +46,16 @@ class Login extends React.Component {
             }
         });
     };
+=======
+>>>>>>> 3467e5582157a51f63eca8ab6e44a4a7dd2dd669
     render(){
-<<<<<<< HEAD:src/routes/cart/Info.js
         return <section>
             
         </section>
     }
 }
 
+<<<<<<< HEAD
 export default connect()(Info)
 =======
         const { getFieldDecorator } = this.props.form;
@@ -106,3 +114,6 @@ export default withRouter(Form.create()(connect()(Login)));
 export default Form.create()(connect()(Login));
 >>>>>>> 617900390c25e8abd7eef6ef91f8aa54b48054da:src/routes/LoginRegister/Login.js
 >>>>>>> 36078da2952de858057f68ef194ed80dfc5221de:src/routes/cart/Info.js
+=======
+export default connect()(Info)
+>>>>>>> 3467e5582157a51f63eca8ab6e44a4a7dd2dd669

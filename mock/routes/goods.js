@@ -110,8 +110,8 @@ goods.get('/random',async (req,res) => {
         // if(list.length < 20){
         //     list.push(curData[index]);
         // }
-        util.readFile(`./data/${item}.json`).then(res => {
-            let curData = JSON.parse(res);
+        util.readFile(`./data/${item}.json`).then(result => {
+            let curData = JSON.parse(result);
             let index = Math.floor(Math.random() * curData.length);
             if(list.length < 20){
                 list.push(curData[index]);
