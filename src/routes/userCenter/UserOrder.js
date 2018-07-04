@@ -13,11 +13,19 @@ class UserOrder extends React.Component {
         super(props,context);
     }
     render(){
+        console.log(this.props.location);
+
         return <div className="userOrder">
-            <Tabs defaultActiveKey="1" onChange={callback}>
-                <TabPane tab="Tab 1" key="1">Content of Tab Pane 1</TabPane>
-                <TabPane tab="Tab 2" key="2">Content of Tab Pane 2</TabPane>
-            </Tabs>,
+            <Tabs defaultActiveKey={
+                this.props.location.pathname==='usercenter/userorder'?'1':'2'
+            } onChange={callback}>
+                <TabPane tab="待支付" key="1"><div className="unpay">
+
+                </div></TabPane>
+                <TabPane tab="待发货" key="2"><div className="payed">
+
+                </div></TabPane>
+            </Tabs>
         </div>
     }
 }
