@@ -22,8 +22,8 @@ class Login extends React.Component {
             <div className="title">老用户登录</div>
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <FormItem>
-                    {getFieldDecorator('userName', {
-                        rules: [{ required: true, message: 'Please input your username!' }],
+                    {getFieldDecorator('phone', {
+                        rules: [{ required: true, message: '请输入你的手机号!' }],
                     })(
                         <Input placeholder="请输入手机号" />
                     )}
@@ -31,7 +31,7 @@ class Login extends React.Component {
                 <div className="password">
                     <FormItem>
                         {getFieldDecorator('password', {
-                            rules: [{ required: true, message: 'Please input your Password!' }],
+                            rules: [{ required: true, message: '请输入你的密码!' }],
                         })(
                             <Input type="password" placeholder="请输入密码" />
 
@@ -53,7 +53,7 @@ class Login extends React.Component {
                         <Icon type="right"/>
                     </a>
                     <a href="#">
-                        <Button type="primary" htmlType="submit" className="login-form-button green">
+                        <Button type="primary" htmlType="submit" className="login-form-button green"  >
                             登录
                         </Button>
                     </a>

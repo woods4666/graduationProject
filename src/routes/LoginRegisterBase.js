@@ -15,13 +15,16 @@ class LoginRegisterBase extends React.Component {
         return <div className="loginRegisterBox">
 
             <div className="loginHeader">
-                <Icon type="left-circle-o" />
+                <Icon type="left-circle-o"  onClick={this.goBack}/>
                 <img src={require('../static/images/loginLogo.png')} alt=""/>
             </div>
             <div className="loginBody">
                 {pathname==='/login'?<Login/>:<Register/>}
             </div>
         </div>
+    }
+    goBack=ev=>{
+        this.props.history.go(-1);
     }
 }
 
