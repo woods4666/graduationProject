@@ -1,8 +1,9 @@
 .homeBox {
+  background: #fff;
   .tabBox {
     width: 100%;
-    height: .7rem;
-    line-height: .7rem;
+    height: 1rem;
+    line-height: 1rem;
     ul {
       height: .7rem;
       padding-top: .7rem;
@@ -36,6 +37,7 @@
       text-align: center;
       width: 100%;
       height: 5rem;
+
       img{
         display: block;
         width: 100%;
@@ -43,12 +45,13 @@
       }
     }
   }
-
   .containerBox{
     width: 100%;
     height: 3rem;
     .hotSell{
+      margin-top: .3rem;
       padding: .2rem;
+      background: #fff;
       h3{
         line-height: .3rem;
         font-size: .45rem;
@@ -58,42 +61,52 @@
         display: flex;
         li{
           float: left;
+          padding: .15rem;
           width: 25%;
+          height: 2rem;
           text-align: center;
           img{
             display: block;
             width: 100%;
+            height: 100%;
           }
           p{
             line-height: .3rem;
             font-size: .2rem;
             text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
           }
         }
       }
     }
     .member{
+      margin-top: .2rem;
       padding: .2rem;
       width: 100%;
       height: 3rem;
+      background: #fff;
       img{
         display: block;
         width: 100%;
         height: 100%;
       }
     }
-    .newProducts{
+    .newProducts,.recommend{
+      margin-top: .3rem;
       width: 100%;
+      background: #fff;
       .title{
-        padding: .3rem;
         width: 100%;
+        height: 1.5rem;
+        margin-bottom: -.4rem;
         h3{
           font-size: .45rem;
           text-align: center;
-          line-height: .3rem;
         }
         p{
-          line-height: .3rem;
+          margin-top: -.2rem;
           font-size: .25rem;
           text-align: center;
         }
@@ -102,19 +115,26 @@
         width: 100%;
         ul{
           width: 100%;
-          display: flex;
           li{
             float: left;
+            margin-bottom: .8rem;
+            padding: .1rem;
+            height: 2.5rem;
             width: 33%;
             text-align: center;
             img{
               display: block;
               width: 100%;
+              height: 100%;
             }
             p{
-              font-size: .3rem;
-              line-height: .2rem;
+              height: .4rem;
+              font-size: .2rem;
+              line-height: .4rem;
               text-align: center;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
             }
             span{
               display: block;
@@ -127,8 +147,37 @@
         }
       }
     }
-    .recommend{
+    .Activities{
+      margin-top: .3rem;
       width: 100%;
+      background: #fff;
+      .title{
+        width: 100%;
+        height: 1.5rem;
+        margin-bottom: -.4rem;
+        h3{
+          font-size: .45rem;
+          text-align: center;
+        }
+        p{
+          margin-top: -.2rem;
+          font-size: .25rem;
+          text-align: center;
+        }
+      }
+      ul{
+        li{
+          margin-top: .1rem;
+          width: 100%;
+          height: 3rem;
+          img{
+            display: block;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
     }
+
   }
 }

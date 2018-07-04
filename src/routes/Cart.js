@@ -14,9 +14,9 @@ class Cart extends React.Component{
                 <span>您可以再登录后同步电脑与手机购物车中的商品</span>
             </div>
             <div className={'iconCart'}>
-                <img src="" alt=""/>
+                <img src={require('../static/images/shop.png')} alt=""/>
                 <p>您的购物车还是空荡荡的</p>
-                <Button type={'dashed'}>赶紧去逛逛</Button>
+                <Link to={'/home'}><Button type={'dashed'}>赶紧去逛逛</Button></Link>
             </div>
         </section>
     }
