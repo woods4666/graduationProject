@@ -1,7 +1,7 @@
 import axios from "./index";
 
 export const add = payload => {
-    return axios.post('/shopcart/add')
+    return axios.post('/shopcart/add',payload)
 }
 
 export const remove = payload => {

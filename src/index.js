@@ -16,6 +16,9 @@ import Cart from "./routes/Cart";
 import UserCenter from "./routes/UserCenter";
 import UserOrder from './routes/userCenter/UserOrder'
 import LoginRegisterBase from "./routes/LoginRegisterBase";
+import Search from './routes/Search'
+import Detail from './routes/Detail';
+
 
 ReactDOM.render(<Provider store={store}>
     <HashRouter>
@@ -33,6 +36,8 @@ ReactDOM.render(<Provider store={store}>
                        <Route path={'/usercenter'} component={UserCenter}/>
                        <Route path={'/login'} component={LoginRegisterBase}/>
                        <Route path={'/register'} component={LoginRegisterBase}/>
+                       <Route path={'/search/:value/:sort'} component={Search}/>
+                       <Route path={'/detail/:category/:id'} component={Detail}></Route>
                        <Redirect to={'/home'}/>
                    </Switch>
                </main>

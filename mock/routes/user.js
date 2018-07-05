@@ -62,10 +62,6 @@ user.post('/login',(req,res) => {
                     })
                 })
         }
-        res.send({
-            code:0,
-            msg:'ok'
-        })
     }else{
         res.send({
             code:1,

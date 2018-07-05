@@ -1,7 +1,6 @@
 
 所有图片地址前面加上  'http://i.lifevccdn.com'
 
-
 ### user
 
 1. 注册   POST   phone password
@@ -34,6 +33,19 @@
 
 5. 检查登录  GET   
 /user/check
+
+6. 获取个人信息  GET
+/user/info
+返回{
+    code:0,
+    msg:'ok',
+    info:{
+        phone,
+        password,
+        email,
+        name
+    }
+}
 
 =============
 
@@ -141,7 +153,7 @@
 ###  购物车
 
 12. 加入购物车  POST
-/shopcart/add  goodsId 加入商品索引  categoryId 加入商品所属分类索引 
+/shopcart/add  goodsId 加入商品索引  categoryId 加入商品所属分类索引  num 加入购物车数量
 
 13. 移除   POST
 /shopcart/remove  idList 数组 要移除的商品索引

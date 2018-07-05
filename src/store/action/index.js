@@ -1,9 +1,12 @@
 import home from './home';
 import person from './parson'
-import shopcart from './shopcart'
+import search from './search'
+import detail from "./detail";
+
 let action={
     home,
     person,
-    shopcart
+    search,
+    detail
 };
 export default action;

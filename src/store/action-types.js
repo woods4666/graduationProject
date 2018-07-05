@@ -1,6 +1,6 @@
-export const REGISTER='REGISTER';
+export const SEARCH='SEARCH';
 
-export const PENDING_PAYMENT='PENDING_PAYMENT';
 
-export const PAYMENTED='PAYMENTED';
-
+// 详情
+export const DETAIL_INIT = 'DETAIL_INIT';
+export const DETAIL_MODIFY = 'DETAIL_MODIFY';
