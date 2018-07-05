@@ -8,30 +8,30 @@ class Search extends React.Component {
     constructor(props,context){
         super(props,context);
     }
-    componentDidMount(){
+    componentWillMount(){
         console.log(this.props.match);
         console.log(this.props.location);
-        let ref=this.props.match.value;
+        this.ref=this.props.match.params.value;
         let {searchProduct}=this.props;
-        searchProduct(ref);
-        // let result=search();
-        // console.log(result);
+        searchProduct(this.ref);
+
     }
 
     render(){
-        let {pathname,search}=this.props.location,
-            base=(pathname+search).slice(0,-1);
-        console.log(base);
-        let {value}=this.props.match.params;
-        // console.log(value);
+        let value=this.ref;
+        let data=this.props.searchData;
+        console.log(data);
         return <div className="searchBox">
-            <nav className="searchNav">
+            {/*<nav className="searchNav">
                 <NavLink to={`/search/${value}/1`}>推荐</NavLink>
                 <NavLink to={`/search/${value}/2`}>新品</NavLink>
                 <NavLink to={`/search/${value}/3`}>销量</NavLink>
                 <NavLink to={`/search/${value}/4`}>价格</NavLink>
-            </nav>
+            </nav>*/}
             <h3>拖鞋</h3>
+            <div className="infoBox">
+
+            </div>
         </div>
     }
 }
