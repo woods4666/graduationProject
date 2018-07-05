@@ -11,12 +11,12 @@ class Tab extends React.Component {
             <ul>
             <li><NavLink exact to={'/home'}>首页</NavLink></li>
             <li><NavLink to={'/home/new'}>新品</NavLink></li>
-            <li><NavLink to={'/home/list/2'}>家务</NavLink></li>
-            <li><NavLink to={'/home/list/3'}>下厨</NavLink></li>
-            <li><NavLink to={'/home/list/4'}>生活</NavLink></li>
-            <li><NavLink to={'/home/list/5'}>家居服</NavLink></li>
-            <li><NavLink to={'/home/list/6'}>床品</NavLink></li>
-            <li><NavLink to={'/home/list/7'}>沐浴洗漱</NavLink></li>
+            <li><NavLink to={'/home/list/0'}>家务</NavLink></li>
+            <li><NavLink to={'/home/list/1'}>下厨</NavLink></li>
+            <li><NavLink to={'/home/list/2'}>生活</NavLink></li>
+            <li><NavLink to={'/home/list/3'}>家居服</NavLink></li>
+            <li><NavLink to={'/home/list/4'}>床品</NavLink></li>
+            <li><NavLink to={'/home/list/5'}>沐浴洗漱</NavLink></li>
             <li><NavLink to={'/home/list/8'}>了解更多</NavLink></li>
             </ul>
         </div>

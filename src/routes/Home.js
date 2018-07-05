@@ -15,7 +15,7 @@ class Home extends React.Component{
         return <section className={'homeBox'}>
             <Tab/>
             <Route path={'/home'} exact component={SmallHome}/>
-            <Route path={'/home/list'} component={List}/>
+            <Route path={'/home/list/:id'} component={List}/>
             <Route path={'/home/new'} component={New}/>
         </section>
     }
