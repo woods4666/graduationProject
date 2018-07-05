@@ -1,8 +1,11 @@
 import home from './home';
 import person from './parson'
+import search from './search'
+
 
 let action={
     home,
-    person
+    person,
+    search
 };
 export default action;

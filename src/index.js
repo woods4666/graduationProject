@@ -17,6 +17,8 @@ import UserCenter from "./routes/UserCenter";
 
 import UserOrder from './routes/userCenter/UserOrder'
 import LoginRegisterBase from "./routes/LoginRegisterBase";
+import Search from './routes/Search'
+
 
 ReactDOM.render(<Provider store={store}>
     <HashRouter>
@@ -34,6 +36,7 @@ ReactDOM.render(<Provider store={store}>
                        <Route path={'/usercenter'} component={UserCenter}/>
                        <Route path={'/login'} component={LoginRegisterBase}/>
                        <Route path={'/register'} component={LoginRegisterBase}/>
+                       <Route path={'/search/:value/:sort'} component={Search}/>
                        <Redirect to={'/home'}/>
                    </Switch>
                </main>
