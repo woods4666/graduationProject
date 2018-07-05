@@ -1,45 +1,274 @@
-.cartBox{
-  padding-top: .8rem;
-  width: 100%;
-  background: #f0fae6;
-  .point{
+@text-gray: #9b9b9b;
+@text-black: #4a4a4a;
+@bg-green: #8ec351;
+p {
+  margin-bottom: 0;
+}
+.cartBox {
+  .header-login {
     width: 100%;
-    line-height: .8rem;
-    a{
+    padding-top: .8rem;
+    background-color: #f0fae6;
+    .login-btn {
       display: inline-block;
+      margin: 0 .2rem;
       width: 1.2rem;
       height: .5rem;
       line-height: .5rem;
+      background: #fff;
+      border: .01px solid #8bc146;
       text-align: center;
-      border: .01rem solid #89be48;
-      margin: 0 .2rem .25rem .2rem;
+      font-size: .2rem;
+      color: #88c13e;
     }
-    span{
-      font-size: .25rem;
+
+    .login-tip {
+      line-height: 1rem;
+      font-size: .2rem;
     }
   }
-  .iconCart{
-    padding-bottom: 1rem;
-    width: 100%;
-    background: #eeeeee;
+
+  .emptyCart {
     text-align: center;
-    img{
+    margin-top: .5rem;
+
+    img {
       display: block;
       margin: 0 auto;
-      width: 3rem;
-      height: 3rem;
-
+      width: 2.3rem;
+      height: 2rem;
     }
-    p{
-      width: 100%;
+    p {
+      font-size: .3rem;
+      margin-top:.1rem ;
+      color: rgb(102, 102, 102);
       line-height: .5rem;
-      font-size: .4rem;
-      text-align: center;
-      color: #4a4a4a;
     }
-    button{
-      color: #89be48;
-      border-color: #89be48;
+
+    a {
+      display: inline-block;
+      margin-top: .3rem;
+      padding: .1rem;
+      border: .01rem solid rgb(137, 190, 72);
+      font-size: .3rem;
+      letter-spacing: .01rem;
+      color: rgb(137, 190, 72);
     }
   }
+
+  .cartList {
+    width: 100%;
+    .cartItem {
+      width: 100%;
+      height: 1.7rem;
+      background: #fff;
+      border-bottom: 1px solid #F4F4F4;
+      ul {
+        overflow: hidden;
+        height: 100%;
+
+        li {
+          float: left;
+          height: 100%;
+          &.itemCheckBox {
+            width: 11%;
+            padding-top: .3rem;
+            text-align: center;
+          }
+          &.itemImg {
+            width: 19%;
+            padding-top: .1rem;
+            img {
+              width: 1.4rem;
+              height: 1.4rem;
+            }
+          }
+          &.itemDetail {
+            position: relative;
+            width: 68%;
+            padding: .2rem;
+
+            p {
+              overflow: hidden;
+              width: 100%;
+              height: .4rem;
+              line-height: .4rem;
+              margin-bottom: 0;
+
+              .infoLeft {
+                float: left;
+
+                a {
+                  color: @text-black;
+                }
+              }
+
+              .infoRight {
+                float: right;
+              }
+
+              &:nth-of-type(1), &:nth-of-type(3) {
+                color: @text-black;
+              }
+
+              &:nth-of-type(2) {
+                font-size: .2rem;
+                color: @text-gray;
+
+                .originalPrice {
+                  text-decoration: line-through;
+                }
+
+              }
+
+              &:nth-of-type(3) {
+                margin-top: .2rem;
+
+                .infoLeft {
+                  padding: .05rem .1rem;
+                  line-height: .16rem;
+                  font-size: .12rem;
+                  color: #cb0101;
+                  margin-right: .05rem;
+                  border: 1px solid #ab2c2b;
+                }
+
+                .infoRight {
+                  border: .01rem solid #6fbd00;
+                  border-radius: .04rem;
+                  line-height: .18rem;
+
+                  span {
+                    display: inline-block;
+                    width: .25rem;
+                    text-align: center;
+                    color: #6fbd00;
+                    border-left: .01rem solid #6fbd00;
+
+                    &:nth-of-type(1) {
+                      border-left: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .cartBottom {
+    position: fixed;
+    margin-bottom: 0;
+    bottom: .95rem;
+    left: 0;
+    width: 100%;
+    height: 1rem;
+    color: gray;
+    border-top: .01rem solid #eee;
+    background: #ffffff;
+
+    li {
+      height: 100%;
+
+      &.check-all {
+        float: left;
+        margin: .13rem 0 0 .12rem;
+      }
+
+      &.cart-btn {
+        float: right;
+        width: 30%;
+        height: 100%;
+        background-color: #8ec351;
+        border-bottom: .01rem solid #8ec351;
+        border-top: .01rem solid #8ec351;
+        text-align: center;
+        font-size: .4rem;
+        color: #fff;
+        line-height: 1rem;
+        letter-spacing: .02rem;
+        text-indent: .02rem;
+
+        .btntxt {
+          span {
+            font-size: .3rem;
+            letter-spacing: 0;
+          }
+        }
+      }
+
+      &.del {
+        background-color: #ab2c2b;
+        border-color: #ab2c2b;
+      }
+
+      &.cart-count {
+        float: right;
+        width: 45%;
+        height: 1rem;
+        overflow: hidden;
+        text-align: right;
+        font-size: .4rem;
+        color: #4a4a4a;
+        line-height: 1rem;
+        margin: 0;
+        padding-right: 2%;
+
+        p {
+          float: right;
+          padding: .2rem 0 .1rem;
+          font-size: .3rem;
+
+          em {
+            color: #ab2c2b;
+          }
+
+          &:nth-of-type(2) {
+            font-size: .3rem;
+            line-height: .7rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ant-checkbox-wrapper {
+  //width: 45px;
+  text-align: center;
+
+  .ant-checkbox-inner {
+    border-radius: 50%;
+    border-color: #9b9b9b !important;
+    width: .4rem;
+    height: .4rem;
+  }
+
+  .ant-checkbox-checked {
+    border-radius: 50%;
+    background-color: #8ec351;
+    border-color: #84be43;
+
+    &:after {
+      border-radius: 50%;
+      border-color: #84be43;
+    }
+
+    .ant-checkbox-inner {
+      border-color: #84be43;
+      background-color: #8ec351;
+
+      &:after {
+        width: .17rem;
+        height: .3rem;
+      }
+    }
+  }
+}
+
+.ant-btn-primary {
+  background-color: @bg-green;
+  border-color: @bg-green;
 }

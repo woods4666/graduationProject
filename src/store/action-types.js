@@ -1,1 +1,6 @@
 export const REGISTER='REGISTER';
+
+export const PENDING_PAYMENT='PENDING_PAYMENT';
+
+export const PAYMENTED='PAYMENTED';
+
