@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter,NavLink} from 'react-router-dom'
-import md5 from 'blueimp-md5'
 import {register} from '../../api/person'
 import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
 
@@ -25,7 +24,6 @@ class Register extends React.Component {
             if (!err) {
                 console.log('Received values of form: ', values);
                 let {phone,password}=values;
-                password=md5(password);
                 let result=await register({phone,password});
                 console.log(result);
                 if (parseFloat(result.code)===0){

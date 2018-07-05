@@ -133,14 +133,10 @@ goods.get('/random',async (req,res) => {
 
 goods.post('/search',async (req,res) => {
     let {ref} = req.body;
-    console.log(ref);
-    
     let list = [];
     for (let i = 0; i < randomAry.length; i++) {
         let curData = JSON.parse(fs.readFileSync(`./data/${randomAry[i]}.json`))
         curData.forEach(item => {
-            console.log(item.Name);
-            
             if(item['Name'].indexOf(ref) >=0 ){
                 list.push({
                     id:item.ItemInfoId,
@@ -150,13 +146,12 @@ goods.post('/search',async (req,res) => {
                     activityTag:item.ActivityTag,
                     isEmpty:item.IsEmpty,
                     commentNum:item.CommentCount,
-                    categoryId:item.categoryId
+                    categoryId:item.categoryId,
+                    SalePrice:item.SalePrice
                 })
             }
         })
     };
-    console.log(list);
-    
     res.send({
         code:0,
         msg:'ok',
