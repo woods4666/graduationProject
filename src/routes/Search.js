@@ -5,35 +5,52 @@ import action from '../store/action'
 import '../static/css/search.less'
 import {NavLink} from 'react-router-dom'
 class Search extends React.Component {
-    constructor(props,context){
-        super(props,context);
-    }
-    componentDidMount(){
-        console.log(this.props.match);
-        console.log(this.props.location);
-        let ref=this.props.match.value;
-        let {searchProduct}=this.props;
-        searchProduct(ref);
-        // let result=search();
-        // console.log(result);
+    constructor(props, context) {
+        super(props, context);
     }
 
-    render(){
-        let {pathname,search}=this.props.location,
-            base=(pathname+search).slice(0,-1);
-        console.log(base);
-        let {value}=this.props.match.params;
-        // console.log(value);
+    componentWillMount() {
+        console.log(this.props.match);
+        console.log(this.props.location);
+        this.ref = this.props.match.params.value;
+        let {searchProduct} = this.props;
+        searchProduct(this.ref);
+
+    }
+
+    render() {
+        let value = this.ref;
+        let data = this.props.searchData;
+        console.log(data);
         return <div className="searchBox">
-            <nav className="searchNav">
-                <NavLink to={`/search/${value}/1`}>推荐</NavLink>
-                <NavLink to={`/search/${value}/2`}>新品</NavLink>
-                <NavLink to={`/search/${value}/3`}>销量</NavLink>
-                <NavLink to={`/search/${value}/4`}>价格</NavLink>
-            </nav>
-            <h3>拖鞋</h3>
+            {/*<nav className="searchNav">
+             <NavLink to={`/search/${value}/1`}>推荐</NavLink>
+             <NavLink to={`/search/${value}/2`}>新品</NavLink>
+             <NavLink to={`/search/${value}/3`}>销量</NavLink>
+             <NavLink to={`/search/${value}/4`}>价格</NavLink>
+             </nav>*/}
+            <h3>{value}</h3>
+            <ul className="infoBox">
+                {data.map((item, index) => {
+                    let {pic, name, isEmpty, activityPrice, commentNum, categoryId, id} = item;
+                    return (
+                        <li key={index}>
+                            <a href="#">
+                                <img src={`http://i.lifevccdn.com${pic}`} alt=""/>
+                                <p className="name">{name}</p>
+                                <p className="price">
+                                    <span className="empty">{isEmpty ? '断码清仓' : ''}</span>
+                                    <span className="activityPrice">￥{activityPrice}</span>
+
+                                    <span className="comment">评论:{commentNum}</span>
+                                </p>
+                            </a>
+                        </li>
+                    )
+                })}
+            </ul>
         </div>
     }
 }
 
-export default connect(state=>state.search,action.search)(Search)
+export default connect(state => state.search, action.search)(Search)
