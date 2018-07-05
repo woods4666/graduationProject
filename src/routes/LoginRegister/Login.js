@@ -1,7 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Form, Icon, Input, Button, Checkbox} from 'antd';
 
+import {NavLink,withRouter} from 'react-router-dom'
+import {login} from '../../api/person'
+
+import {Form, Icon, Input, Button, Checkbox} from 'antd';
 const FormItem = Form.Item;
 
 class Login extends React.Component {
@@ -11,9 +14,17 @@ class Login extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
+        this.props.form.validateFields(async (err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                let {password,phone}=values;
+                console.log(phone, password);
+                let result=await login({phone,password});
+                console.log(22);
+                console.log(result);
+                if (result.code==0){
+                    this.props.history.go(-1);
+                }
             }
         });
     };
@@ -26,8 +37,8 @@ class Login extends React.Component {
             <div className="title">老用户登录</div>
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <FormItem>
-                    {getFieldDecorator('userName', {
-                        rules: [{required: true, message: 'Please input your username!'}],
+                    {getFieldDecorator('phone', {
+                        rules: [{required: true, message: '请输入你的手机号!'}],
                     })(
                         <Input placeholder="请输入手机号"/>
                     )}
@@ -35,7 +46,7 @@ class Login extends React.Component {
                 <div className="password">
                     <FormItem>
                         {getFieldDecorator('password', {
-                            rules: [{required: true, message: 'Please input your Password!'}],
+                            rules: [{required: true, message: '请输入你的密码!'}],
                         })(
                             <Input type="password" placeholder="请输入密码"/>
                         )}
@@ -61,9 +72,9 @@ class Login extends React.Component {
                         </Button>
                     </a>
 
-                    <a href=""><Button className='gray'>
+                    <NavLink to="/register"><Button className='gray'>
                         注册
-                    </Button></a>
+                    </Button></NavLink>
                 </FormItem>
             </Form>
         </div>
@@ -71,4 +82,4 @@ class Login extends React.Component {
     }
 }
 
-export default Form.create()(connect()(Login));
+export default withRouter(Form.create()(connect()(Login)));

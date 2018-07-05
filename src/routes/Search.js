@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {search} from '../api/goods'
 import action from '../store/action'
 import '../static/css/search.less'
-import {NavLink} from 'react-router-dom'
+import {NavLink,Link} from 'react-router-dom'
 class Search extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -35,7 +35,7 @@ class Search extends React.Component {
                     let {pic, name, isEmpty, activityPrice, commentNum, categoryId, id} = item;
                     return (
                         <li key={index}>
-                            <a href="#">
+                            <Link to={`/detail/${categoryId}/${id}`}>
                                 <img src={`http://i.lifevccdn.com${pic}`} alt=""/>
                                 <p className="name">{name}</p>
                                 <p className="price">
@@ -44,7 +44,7 @@ class Search extends React.Component {
 
                                     <span className="comment">评论:{commentNum}</span>
                                 </p>
-                            </a>
+                            </Link>
                         </li>
                     )
                 })}
