@@ -19,3 +19,6 @@ export const modify = payload => {
 export const checkLog = () => {
     return axios.get('/user/check')
 }
+export const queryInfo=()=>{
+    return axios.get('/user/info')
+}

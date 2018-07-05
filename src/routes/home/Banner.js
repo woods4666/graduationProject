@@ -25,7 +25,7 @@ class Banner extends React.Component {
             <Carousel autoplay>
                 {this.state.list.map((item,index)=>{
                     let {ImageUrl,categoryId,ItemInfoId}=item;
-                    return <div key={index}><Link to={`/goods/info/${categoryId}/${ItemInfoId}`}><img src={'http://i.lifevccdn.com'+ImageUrl} alt=""/></Link></div>
+                    return <div key={index}><Link to={`/detail/${categoryId}/${ItemInfoId}`}><img src={'http://i.lifevccdn.com'+ImageUrl} alt=""/></Link></div>
                 })}
             </Carousel>
         </section>

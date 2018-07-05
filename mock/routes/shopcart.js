@@ -8,7 +8,7 @@ shopcart.use(async (req,res,next) => {
 })
 
 shopcart.post('/add',async (req,res) => {
-    let {goodsId,categoryId} = req.body;
+    let {goodsId,categoryId,num} = req.body;
     let curCategory = JSON.parse(await util.readFile(`./data/${categoryId}.json`));
     let curGood = curCategory.find(item => item.ItemInfoId == goodsId);
     console.log(curGood);
@@ -27,18 +27,19 @@ shopcart.post('/add',async (req,res) => {
             return item.id == goodsId
         }) 
         if(key >= 0){
-            curUserData.list[index].num++
+            curUserData.list[index].num += num;
         }else{
             curUserData.list.push({
                 id:goodsId,
                 categoryId,
-                num:1,
+                num,
                 status:0,
                 name:curGood.Name,
                 pic:curGood.ImageUrl,
                 salePrice:curGood.SalePrice,
                 activityPrice:curGood.activityPrice,
-                activityTag:curGood.activityTag
+                activityTag:curGood.activityTag,
+                GroupAttrs:curGood.GroupAttrs
             })
         }
         util.writeFile('./data/shopcart.json',JSON.stringify(shopcartData))
@@ -59,13 +60,14 @@ shopcart.post('/add',async (req,res) => {
             req.session.storeList = [{
                 id:goodsId,
                 categoryId,
-                num:1,
+                num,
                 status:0,
                 name:curGood.Name,
                 pic:curGood.ImageUrl,
                 salePrice:curGood.SalePrice,
                 activityPrice:curGood.activityPrice,
-                activityTag:curGood.activityTag
+                activityTag:curGood.activityTag,
+                GroupAttrs:curGood.GroupAttrs
             }];
             res.send({
                 code:0,
@@ -77,19 +79,20 @@ shopcart.post('/add',async (req,res) => {
                 return item.id == goodsId
             });
             if(_index >= 0){
-                storeList[_index].num++;
+                storeList[_index].num += num;
                 req.session.storeList = storeList
             }else{
                 req.session.storeList.push({
                     id:goodsId,
                     categoryId,
-                    num:1,
+                    num,
                     status:0,
                     name:curGood.Name,
                     pic:curGood.ImageUrl,
                     salePrice:curGood.SalePrice,
                     activityPrice:curGood.activityPrice,
-                    activityTag:curGood.activityTag
+                    activityTag:curGood.activityTag,
+                    GroupAttrs:curGood.GroupAttrs
                 });
                 res.send({
                     code:0,
@@ -174,7 +177,6 @@ shopcart.post('/pay',(req,res) => {
 
 shopcart.get('/query',(req,res) => {
     if(!req.session.userID){
-        
         res.send({
             code:0,
             msg:'ok',
