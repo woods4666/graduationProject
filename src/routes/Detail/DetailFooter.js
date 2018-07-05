@@ -21,8 +21,10 @@ class DetailFooter extends React.Component{
         return(
             <div className="detail-footer footerNavBox" style={{zIndex:'10000'}}>
                 <NavLink to={'/home'}>
-                    <Icon type={'home'}/>
-                    <span>首页</span>
+                    <Badge count={0} >
+                        <Icon type={'home'}/>
+                        <span>首页</span>
+                    </Badge>
                 </NavLink>
                 <NavLink to="/cart">
                     <Badge count={this.props.num} offset={[0,20]}>

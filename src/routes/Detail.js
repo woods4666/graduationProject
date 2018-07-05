@@ -69,7 +69,6 @@ class Detail extends React.Component {
         }
         return (
             <div className="container-detail">
-
                 <DetailFooter
                     category={category}
                     id={id}
