@@ -13,7 +13,6 @@ class Stroll extends React.Component{
     }
     async componentWillMount(){
         let result=await queryRandom();
-        console.log(result);
         let {list}=result;
         this.setState({
             list
@@ -21,7 +20,6 @@ class Stroll extends React.Component{
     }
     render(){
         let {list}=this.state;
-        console.log(list);
         return <section className="strollBox">
             <div className="product clearfix">
                 {list.length==0?'':(

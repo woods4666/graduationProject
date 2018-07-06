@@ -20,7 +20,6 @@ class All extends React.Component {
         });
     }
     render() {
-        console.log(this.state.data);
         let {data}=this.state;
         return <section className="allBox">
             <div className="searchBox">
