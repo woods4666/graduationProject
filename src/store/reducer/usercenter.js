@@ -6,8 +6,8 @@ export default function home(state={
     state=JSON.parse(JSON.stringify(state));
     switch(action.type){
         case TYPES.CHANGE_lOGIN_STATE:
-            state.loginState=action.state;
-            state.phone=action.phone;
+            action.state==null?null:state.loginState=action.state;
+            action.phone==null?null:state.phone=action.phone;
     }
     return state;
 }
