@@ -52,7 +52,18 @@ user.post('/login',(req,res) => {
                     list:[]
                 })
             }else {
-                req.shopcartData[index].list.concat(req.session.storeList)
+                // 将两个数组合并
+                let newList = req.session.storeList,
+                    oldList = req.shopcartData[index].list;
+                newList.forEach((item,index) => {
+                    let idx = oldList.findIndex(_item => _item.id == item.id);
+                    if(idx >= 0){
+                        oldList[index].num = newList[idx].num;
+                    }else{
+                        oldList.push(item)
+                    }
+                })
+                req.shopcartData[index].list =  oldList;
             }
             util.writeFile('./data/shopcart.json',JSON.stringify(req.shopcartData))
                 .then(result => {
