@@ -104,15 +104,17 @@ shopcart.post('/add',async (req,res) => {
 
 shopcart.post('/remove',(req,res) => {
     let idList = Object.values(req.body);
+    console.log(idList);
+    
     if(req.session.userID){
         let {shopcartData} = req;
-        let key = shopcartData.find(item => {
+        let key = shopcartData.findIndex(item => {
             return item.userID == req.session.userID 
         });
         shopcartData[key].list = shopcartData[key].list.filter(item => {
-            return idList.indexOf(item) < 0
+            return idList.indexOf(item.id) < 0
         })
-        util.writeFile('./data/shopcart.json',JSON.stringify(shopcart))
+        util.writeFile('./data/shopcart.json',JSON.stringify(shopcartData))
             .then(result => {
                 res.send({
                     code:0,

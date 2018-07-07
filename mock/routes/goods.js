@@ -124,7 +124,10 @@ goods.get('/random',async (req,res) => {
                 res.send({
                     code:0,
                     msg:'ok',
-                    list
+                    list:list.map(item => {
+                        item.id = item.ItemInfoId;
+                        return item
+                    })
                 })
             }
         })

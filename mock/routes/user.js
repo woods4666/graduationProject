@@ -22,7 +22,7 @@ user.post('/register',(req,res) => {
         })
         return
     }
-    userData.push({phone,password,name,email});
+    req.userData.push({phone,password,name,email});
     util.writeFile('./data/user.json',JSON.stringify(userData)).then(result => {
         res.send({
             code:0,
