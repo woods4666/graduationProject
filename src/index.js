@@ -18,14 +18,15 @@ import UserOrder from './routes/userCenter/UserOrder'
 import LoginRegisterBase from "./routes/LoginRegisterBase";
 import Search from './routes/Search'
 import Detail from './routes/Detail';
-import Setting from './routes/Setting'
+import List from "./routes/List";
+
 
 ReactDOM.render(<Provider store={store}>
     <HashRouter>
         <LocaleProvider locale={zh_CN}>
            <div>
                <Head/>
-               <main className={'container'}>
+               <main className={'container'} style={{marginTop:'40px'}}>
                    <Switch>
                        <Route path={'/home'} component={Home}/>
                        <Route path={'/all'} component={All}/>
@@ -38,7 +39,7 @@ ReactDOM.render(<Provider store={store}>
                        <Route path={'/register'} component={LoginRegisterBase}/>
                        <Route path={'/search/:value/:sort'} component={Search}/>
                        <Route path={'/detail/:category/:id'} component={Detail}></Route>
-                       <Route path={'/setting'} component={Setting}/>
+                       <Route path={'/list'} component={List}/>
                        <Redirect to={'/home'}/>
                    </Switch>
                </main>

@@ -30,7 +30,7 @@ class Detail extends React.Component {
         this.cartList = await query();
         this.bannerData = this.data.goodsData['Headers'];
         this._data = this.data.goodsData;
-        let skus = this._data.GroupAttrs.skus
+        let skus = this._data.GroupAttrs.skus;
         this.matrix = [];
         for (const key in skus) {
             if (skus[key]['infoId'] == id) {
@@ -131,7 +131,7 @@ class Detail extends React.Component {
                                                     item.vals.map((attr, _index) => {
                                                         return <span
                                                             className={
-                                                                _index == this.props.matrix[index] ?
+                                                                _index == this.matrix[index] ?
                                                                     "param-attr param-attr-active" :
                                                                     "param-attr"
                                                             }

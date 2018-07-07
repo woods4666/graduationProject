@@ -1,17 +1,51 @@
 import * as TYPES from '../action-types';
 import {query} from '../../api/shopcart'
 let shopcart={
-    queryUnpay(payload={}){
-        return {
-            type:TYPES.PENDING_PAYMENT,
-            payload:query(0)
+   queryData() {
+       return async dispatch => {
+           let result = await query(0);
+           dispatch({
+               type: TYPES.ADD_CART,
+               result
+           });
+       }
+   },
+
+    insrease(payload){
+        return async dispatch => {
+            dispatch({
+                type: TYPES.ADD_INCREASE,
+                payload
+            });
         }
     },
-    queryPay(){
-        return {
-            type:TYPES.PAYMENTED,
-            payload:query(1)
+
+    reduce(payload){
+        return async dispatch => {
+            dispatch({
+                type: TYPES.REDUCE,
+                payload
+            });
         }
+    },
+
+
+
+    unpay(){
+        return async dispatch => {
+            let result = await query(0);
+            dispatch({
+                type: TYPES.UNPAY,
+                result
+            });
+        }
+    },
+    select(mode){
+       return {
+           type:TYPES.HANDLE_MODE,
+           mode
+       }
     }
+
 };
 export default shopcart;

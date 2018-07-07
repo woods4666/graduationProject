@@ -15,7 +15,7 @@ class DetailFooter extends React.Component{
             goodsId:id,
             num:shopNum
         }) 
-    }
+    };
 
     render(){
         return(

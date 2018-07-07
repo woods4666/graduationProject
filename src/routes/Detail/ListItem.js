@@ -5,7 +5,7 @@ class ListItem extends React.Component {
         super(props)
     }
     render() {
-        let { CustomerCity, CreatedAt, CustomerName, CustomerLevelName, Content, BuyCount, Target } = this.props
+        let { CustomerCity, CreatedAt, CustomerName, CustomerLevelName, Content, BuyCount, Target } = this.props;
         return (
             <li>
                 <div>

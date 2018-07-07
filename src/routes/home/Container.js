@@ -26,7 +26,6 @@ class Container extends React.Component {
         let newProducts = this.state.list.slice(4, 10);
         let recommend = this.state.list.slice(10, 19);
         let Activities = this.state.list.slice(11, 15);
-        console.log(hotSell);
         return <section className={'containerBox'}>
             {/*本周热卖*/}
             <div className={'hotSell'}>
