@@ -1,0 +1,127 @@
+.settingBox{
+  //padding-top: .7rem;
+  position: fixed;
+  bottom: 0;
+  top: .7rem;
+  left: 0;
+  right: -100%;
+  background: #eee;
+  z-index: 9999;
+  .infoBox{
+    width: 50%;
+    height: 100%;
+    //background: red;
+    .white{
+      width: 100%;
+      height: 1.2rem;
+      line-height: 1.2rem;
+      margin-bottom: .24rem;
+      background: #fff;
+      box-sizing: border-box;
+      padding:0 .2rem 0 .4rem;
+      font-size: .32rem;
+      color: #585858;
+      .toRight{
+        float: right;
+        .pray{
+          color: #ccc;
+          font-size: .3rem;
+          margin-top: -.1rem;
+          margin-right: .2rem;
+        }
+        i{
+          font-size: .4rem;
+          margin-top: .4rem;
+        }
+      }
+    }
+    button.logOut{
+      outline: none;
+      width: 6.4rem;
+      line-height: 1rem;
+      text-align: center;
+      font-size: .4rem;
+      margin:.6rem auto 0;
+      background: #ee7621;
+      display: block;
+      border:none;
+      border-radius:.1rem;
+      //margin-left: .4rem;
+      color: #fff;
+    }
+  }
+  .aboutBox{
+    width: 50%;
+    height: 100%;
+    //background: yellow;
+    position: absolute;
+    top: 0;
+    //left: 50%;
+    transition: left .1s linear;
+    i.left{
+      position: absolute;
+      top: -.5rem;
+      left: .2rem;
+      color: #fff;
+
+    }
+    .container{
+      .sect-sub{
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        margin:.4rem 0;
+        background: #fff;
+        .client{
+          .client1{
+            float: left;
+            margin: 5% 5% 0;
+            width: 40%;
+            img{
+              display: block;
+              width: 100%;
+            }
+          }
+        }
+        .title{
+          .client-title1{
+            float: left;
+            width: 50%;
+            box-sizing: border-box;
+            padding-left: .3rem;
+            p{
+              line-height: .65rem;
+              margin: 0;
+            }
+          }
+        }
+      }
+      .sect-sub2{
+        padding:.3rem .3rem 0 .2rem;
+        h3{
+          font-size: .4rem;
+        }
+        p{
+          font-size: .32rem;
+          color: #888;
+          height: 5rem;
+        }
+      }
+    }
+  }
+}
+
+.ant-modal-mask{
+  z-index: 10000;
+}
+.ant-modal-wrap {
+  z-index: 10000;
+  .ant-modal{
+    margin-top: 3.2rem;
+    .ant-modal-body{
+      display: none;
+    }
+    .ant-modal-footer{
+      border-top:0;
+    }
+  }
+}

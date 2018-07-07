@@ -87,13 +87,14 @@ goods.get('/category/:id/:sort',async (req,res) => {
     data.forEach(item => {
         list.push({
             id:item.ItemInfoId,
-            name:item.Name,
-            pic:item.ImageUrl,
-            activityPrice:item.ActivityPrice,
-            activityTag:item.ActivityTag,
-            isEmpty:item.IsEmpty,
-            commentNum:item.CommentCount,
-            categoryId:item.categoryId
+            Name:item.Name,
+            ImageUrl:item.ImageUrl,
+            ActivityPrice:item.ActivityPrice,
+            ActivityTag:item.ActivityTag,
+            IsEmpty:item.IsEmpty,
+            CommentCount:item.CommentCount,
+            categoryId:item.categoryId,
+            SalePrice:item.SalePrice
         })
     });
     res.send({
@@ -128,30 +129,35 @@ goods.get('/random',async (req,res) => {
             }
         })
     });
-    
 })
 
 goods.post('/search',async (req,res) => {
     let {ref} = req.body;
+    console.log(ref);
+    
     let list = [];
     for (let i = 0; i < randomAry.length; i++) {
         let curData = JSON.parse(fs.readFileSync(`./data/${randomAry[i]}.json`))
         curData.forEach(item => {
+            console.log(item.Name);
+            
             if(item['Name'].indexOf(ref) >=0 ){
                 list.push({
                     id:item.ItemInfoId,
-                    name:item.Name,
-                    pic:item.ImageUrl,
-                    activityPrice:item.ActivityPrice,
-                    activityTag:item.ActivityTag,
-                    isEmpty:item.IsEmpty,
-                    commentNum:item.CommentCount,
-                    categoryId:item.categoryId,
-                    SalePrice:item.SalePrice
+                    Name:item.Name,
+                    ImageUrl:item.ImageUrl,
+                    ActivityPrice:item.ActivityPrice,
+                    ActivityTag:item.ActivityTag,
+                    IsEmpty:item.IsEmpty,
+                    SalePrice:item.SalePrice,
+                    CommentCount:item.CommentCount,
+                    categoryId:item.categoryId
                 })
             }
         })
     };
+    console.log(list);
+    
     res.send({
         code:0,
         msg:'ok',

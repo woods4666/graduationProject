@@ -2,14 +2,15 @@ import home from './home';
 import person from './parson'
 import search from './search'
 import detail from "./detail";
-import shopcart from './shopcart'
-import list from './list'
+import userCenter from './userCenter'
+import setting from './setting'
+
 let action={
     home,
     person,
     search,
     detail,
-    shopcart,
-    list,
+    userCenter,
+    setting
 };
 export default action;

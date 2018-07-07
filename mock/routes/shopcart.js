@@ -11,8 +11,6 @@ shopcart.post('/add',async (req,res) => {
     let {goodsId,categoryId,num} = req.body;
     let curCategory = JSON.parse(await util.readFile(`./data/${categoryId}.json`));
     let curGood = curCategory.find(item => item.ItemInfoId == goodsId);
-    console.log(curGood);
-    
     if(req.session.userID){
         let {shopcartData} = req;
         let index = shopcartData.findIndex(item => {
@@ -27,18 +25,18 @@ shopcart.post('/add',async (req,res) => {
             return item.id == goodsId
         }) 
         if(key >= 0){
-            curUserData.list[index].num += num;
+            curUserData.list[index].num += parseFloat(num);
         }else{
             curUserData.list.push({
                 id:goodsId,
                 categoryId,
-                num,
+                num:parseFloat(num),
                 status:0,
                 name:curGood.Name,
                 pic:curGood.ImageUrl,
                 salePrice:curGood.SalePrice,
-                activityPrice:curGood.activityPrice,
-                activityTag:curGood.activityTag,
+                activityPrice:curGood.ActivityPrice,
+                activityTag:curGood.ActivityTag,
                 GroupAttrs:curGood.GroupAttrs
             })
         }
@@ -60,13 +58,13 @@ shopcart.post('/add',async (req,res) => {
             req.session.storeList = [{
                 id:goodsId,
                 categoryId,
-                num,
+                num:parseFloat(num),
                 status:0,
                 name:curGood.Name,
                 pic:curGood.ImageUrl,
                 salePrice:curGood.SalePrice,
-                activityPrice:curGood.activityPrice,
-                activityTag:curGood.activityTag,
+                activityPrice:curGood.ActivityPrice,
+                activityTag:curGood.ActivityTag,
                 GroupAttrs:curGood.GroupAttrs
             }];
             res.send({
@@ -79,33 +77,33 @@ shopcart.post('/add',async (req,res) => {
                 return item.id == goodsId
             });
             if(_index >= 0){
-                storeList[_index].num += num;
-                req.session.storeList = storeList
+                storeList[_index].num += parseFloat(num);
+                req.session.storeList = storeList;
             }else{
                 req.session.storeList.push({
                     id:goodsId,
                     categoryId,
-                    num,
+                    num:parseFloat(num),
                     status:0,
                     name:curGood.Name,
                     pic:curGood.ImageUrl,
                     salePrice:curGood.SalePrice,
-                    activityPrice:curGood.activityPrice,
-                    activityTag:curGood.activityTag,
+                    activityPrice:curGood.ActivityPrice,
+                    activityTag:curGood.ActivityTag,
                     GroupAttrs:curGood.GroupAttrs
                 });
-                res.send({
-                    code:0,
-                    msg:'ok'
-                })
             }
+            res.send({
+                code:0,
+                msg:'ok'
+            })
         }
     }
 
 })
 
 shopcart.post('/remove',(req,res) => {
-    let {idList} = req.body;
+    let idList = Object.values(req.body);
     if(req.session.userID){
         let {shopcartData} = req;
         let key = shopcartData.find(item => {
@@ -129,7 +127,7 @@ shopcart.post('/remove',(req,res) => {
             })
     }else{
         req.session.storeList = req.session.storeList.filter(item => {
-            return idList.indexOf(item) < 0
+            return !idList.includes(item.id)
         });
         res.send({
             code:0,
