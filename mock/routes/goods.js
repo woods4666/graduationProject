@@ -60,7 +60,7 @@ goods.get('/info/:category/:id',async (req,res) => {
 goods.get('/category/:id/:sort',async (req,res) => {
     let {id,sort} = req.params;
     let data = JSON.parse(await util.readFile(`./data/${id}.json`))
-    switch (parseFloat(id)) {
+    switch (parseFloat(sort)) {
         case 1:
             data = data.sort((a,b) => {
                 return parseFloat(a.ItemInfoId) - parseFloat(b.ItemInfoId)

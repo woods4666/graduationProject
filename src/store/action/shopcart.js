@@ -1,51 +1,45 @@
-import * as TYPES from '../action-types';
-import {query} from '../../api/shopcart'
-let shopcart={
-   queryData() {
-       return async dispatch => {
-           let result = await query(0);
-           dispatch({
-               type: TYPES.ADD_CART,
-               result
-           });
-       }
-   },
+import * as TYPES from '../action-types'
+import {query,remove} from '../../api/shopcart'
 
-    insrease(payload){
+let shopcart = {
+    edit(isEdit) {
+        return {
+            type: TYPES.CART_EDIT,
+            isEdit
+        };
+    },
+    queryInfo() {
         return async dispatch => {
+            let result = await query();
             dispatch({
-                type: TYPES.ADD_INCREASE,
-                payload
+                type: TYPES.CART_QUERY_INFO,
+                cartList: result.list
             });
         }
     },
-
-    reduce(payload){
-        return async dispatch => {
-            dispatch({
-                type: TYPES.REDUCE,
-                payload
-            });
-        }
+    numUpdate(id, num) {
+        return {
+            type: TYPES.CART_NUM_UPDATE,
+            id,
+            num
+        };
     },
-
-
-
-    unpay(){
-        return async dispatch => {
-            let result = await query(0);
-            dispatch({
-                type: TYPES.UNPAY,
-                result
-            });
-        }
+    goodsChecked(mode){
+        return {
+            type: TYPES.CART_GOODS_CHECKED,
+            mode
+        };
     },
-    select(mode){
-       return {
-           type:TYPES.HANDLE_MODE,
-           mode
-       }
+    goodsRemove(payload){
+        return async dispatch=>{
+            let result = await remove(payload);
+            result.code===0?
+                dispatch({
+                    type: TYPES.CART_GOODS_REMOVE,
+                    payload
+                }):null;
+        }
     }
-
 };
+
 export default shopcart;

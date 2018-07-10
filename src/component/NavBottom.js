@@ -29,7 +29,7 @@ class Nav extends React.Component{
                 <li><NavLink to={'/home'} type={'home'}><Icon type={'home'}/>首页</NavLink></li>
                 <li><NavLink to={'/all'} type={'profile'}><Icon type={'profile'}/>全部产品</NavLink></li>
                 <li><NavLink to={'/stroll'} type={'compass'}><Icon type={'compass'}/>闲逛</NavLink></li>
-                <li className={'badge'}><NavLink to={'/cart'} type={'shopping'}><Badge count={this.props.cartData.length}><Icon type={'shopping-cart'}/>购物车</Badge></NavLink></li>
+                <li className={'badge'}><NavLink to={'/cart'} type={'shopping'}><Badge count={this.props.cartList.length}><Icon type={'shopping-cart'}/>购物车</Badge></NavLink></li>
 
                 <li><NavLink to={'/usercenter'} type={'user'}><Icon type={'user'}/>账户中心</NavLink></li>
 

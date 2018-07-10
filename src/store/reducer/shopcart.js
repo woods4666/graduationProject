@@ -1,75 +1,52 @@
-import *as TYPES from '../action-types';
-export default function home(state={
-    cartData:[],
-    selectAll: true
-},action) {
-    state=JSON.parse(JSON.stringify(state));
-    switch (action.type){
-        case TYPES.ADD_CART:
-            let {code,list}=action.result;
-            if(parseFloat(code)===0){
-                list.forEach(item=>{
-                    let {num}=item;
-                    item.num=(!num)?1:num;
-                });
-                state.cartData=list;
-            }
-            break;
+import * as TYPES from '../action-types'
 
-        case TYPES.ADD_INCREASE:
-            /*console.log(action.payload);*/
-            let {id}=action.payload.params;
-            let searchItem=state.cartData.find(item => {
-                return item.id === id
+let initState = {
+    isEdit: false,
+    cartList: [],
+    selectAll: true,
+};
+
+export default function shopcart(state = initState, action) {
+    state = JSON.parse(JSON.stringify(state));
+    switch (action.type) {
+        case TYPES.CART_EDIT:
+            state.isEdit = action.isEdit;
+            break;
+        case TYPES.CART_QUERY_INFO:
+            state.cartList = action.cartList.map(item => {
+                return {...item, isCheck: true};
             });
-            isNaN(searchItem.num)?searchItem.num=1:null;
-            searchItem.num=parseFloat(searchItem.num)+1;
             break;
-
-        case TYPES.REDUCE:
-            /*console.log(action.payload);*/
-            let {id:Id}=action.payload.params;
-            let Item=state.cartData.find(item => {
-                return item.id === Id
+        case TYPES.CART_NUM_UPDATE:
+            state.cartList = state.cartList.map(item => {
+                if (item.id === action.id) {
+                    item.isCheck = true;
+                    action.num > 0 ? item.num++ : item.num--;
+                }
+                return item;
             });
-            isNaN(Item.num)?Item.num=1:null;
-            if(parseFloat(Item.num)-1<1){
-                Item.num=1;
-            }else {
-                Item.num=parseFloat(Item.num)-1;
-            }
-
+            state.cartList.every(item => item.isCheck === true) ? state.selectAll = true : state.selectAll = false;
             break;
-        case TYPES.UNPAY:
-            if (parseFloat(action.result.code) === 0) {
-                state.cartData.unpay = action.result.data;
-
-                state.cartData.unpay = state.cartData.unpay.map(item => {
-                    return {...item, check: true};
-                });
-                state.selectAll = true;
-            }
-            break;
-        case TYPES.HANDLE_MODE:
+        case TYPES.CART_GOODS_CHECKED:
             let mode = action.mode;
             if (mode === 'all') {
                 state.selectAll = !state.selectAll;
-                state.cartData.unpay = state.cartData.unpay.map(item => {
-                    return {...item, check: state.selectAll};
+                state.cartList = state.cartList.map(item => {
+                    return {...item, isCheck: state.selectAll}
                 });
             } else {
-                let item = state.cartData.unpay.find(item => {
-                    return parseFloat(item.id) === mode;
-                });
-                item.check = !item.check;
-                //=>注意:验证是否所有的课程都是选中的，如果是全选也要选中
-                let f = state.cartData.unpay.find(item => {
-                    return item.check === false;
-                });
-                f ? state.selectAll = false : state.selectAll = true;
+                let item = state.cartList.find(item => parseFloat(item.id) === parseFloat(mode));
+                item.isCheck = !item.isCheck;
+                state.cartList.every(item => item.isCheck === true) ? state.selectAll = true : state.selectAll = false;
             }
             break;
-
+        case TYPES.CART_GOODS_REMOVE:
+            let idList = action.payload;
+            console.log(idList);
+            idList.map(value => {
+                state.cartList = state.cartList.filter(item => parseFloat(item.id) !== parseFloat(value));
+            });
+            break;
     }
     return state;
 }

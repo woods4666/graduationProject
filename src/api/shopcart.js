@@ -15,3 +15,4 @@ export const pay = payload => {
 export const query = () => {
     return axios.get('/shopcart/query')
 };
+
